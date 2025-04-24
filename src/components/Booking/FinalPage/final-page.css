@@ -1,0 +1,66 @@
+.lemon__booking-forms_final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lemon__booking-forms_final section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 6.4rem;
+  gap: 10px;
+}
+
+.lemon__booking-forms_final p {
+  font-family: var(--Font-Secondary);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 30px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1400px) {
+  .lemon__booking-forms_final section {
+    padding: 1.5rem 5rem;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .lemon__booking-forms_final section {
+    padding: 1.5rem 3rem;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .lemon__booking-forms_final section {
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .lemon__booking-forms_final section {
+    padding: 1rem 1rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .lemon__booking-forms_final section {
+    padding: 0;
+  }
+  .lemon__booking-forms_final p {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .lemon__booking-forms_final section {
+    padding: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .lemon__booking-forms_final p {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

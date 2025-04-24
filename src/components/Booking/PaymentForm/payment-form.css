@@ -1,0 +1,216 @@
+.lemon__booking-forms_payment {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--Font-Secondary);
+  margin-bottom: 1.5rem;
+}
+
+.lemon__booking-forms_payment-sections {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  outline: none;
+  border: none;
+  gap: 10px;
+}
+
+.lemon__booking-forms_payment-icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.lemon__booking-forms_payment-icons > * {
+  max-width: 53px;
+  max-height: 53px;
+  cursor: pointer;
+}
+
+.lemon__booking-forms_payment-sections p {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  align-self: center;
+  position: relative;
+  padding: 0 6px;
+  color: var(--Color-Primary);
+}
+
+.lemon__booking-forms_payment-sections p::after,
+.lemon__booking-forms_payment-sections p::before {
+  content: "";
+  display: inline-block;
+  width: 20%;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  background: var(--Color-Primary);
+  border-radius: 2px;
+}
+
+.lemon__booking-forms_payment-sections p::after {
+  left: 100%;
+}
+
+.lemon__booking-forms_payment-sections p::before {
+  right: 100%;
+}
+
+.lemon__booking-forms_payment-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.lemon__booking-forms_payment-card label {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 20px;
+  display: block;
+}
+
+.lemon__booking-forms_payment-card input {
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  height: 41px;
+  outline: none;
+  border: none;
+  background: #d9d9d9;
+  padding: 16px;
+  border-radius: 10px;
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+}
+
+.lemon__booking-forms_payment-card :nth-child(3) {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.lemon__booking-forms_payment-card div input {
+  width: 100%;
+}
+
+.lemon__booking-forms_payment-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  padding: 0 1.5rem;
+}
+
+.lemon__booking-forms_payment-details h4 {
+  font-family: var(--Font-Secondary);
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 30px;
+  padding-bottom: 15px;
+}
+
+.lemon__booking-forms_payment-details p {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+  text-align: start;
+}
+
+.lemon__booking-forms_payment-details div :last-child {
+  text-align: end;
+}
+
+.lemon__booking-forms_payment-details div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lemon__booking-forms_payment-details hr {
+  height: 2px;
+  border: none;
+  background: #d9d9d9;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 1400px) {
+  .lemon__booking-forms_payment-sections p::after,
+  .lemon__booking-forms_payment-sections p::before {
+    width: 15%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .lemon__booking-forms_payment-sections p::after,
+  .lemon__booking-forms_payment-sections p::before {
+    width: 10%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .lemon__booking-forms_payment-sections p::after,
+  .lemon__booking-forms_payment-sections p::before {
+    display: none;
+  }
+
+  .lemon__booking-forms_payment-sections {
+    width: 43%;
+  }
+
+  .lemon__booking-forms_payment-details {
+    width: 55%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .lemon__booking-forms_payment {
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .lemon__booking-forms_payment-sections,
+  .lemon__booking-forms_payment-details {
+    width: 90%;
+  }
+  .lemon__booking-forms_payment-details {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .lemon__booking-forms_payment {
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .lemon__booking-forms_payment-sections,
+  .lemon__booking-forms_payment-details {
+    width: 100%;
+  }
+
+  .lemon__booking-forms_payment-sections {
+    gap: 1.5rem;
+  }
+
+  .lemon__booking-forms_payment-details h4 {
+    font-family: var(--Font-Secondary);
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 30px;
+    padding-bottom: 15px;
+  }
+
+  .lemon__booking-forms_payment-details p {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: start;
+  }
+  .lemon__booking-forms_payment-details {
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+  }
+}

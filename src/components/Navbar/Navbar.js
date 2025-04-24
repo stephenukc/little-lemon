@@ -1,33 +1,33 @@
-import "./navbar.css";
-import logo from "../../assets/Logo.svg";
-import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
+import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
+import logo from "../../assets/Logo.svg";
+import "./navbar.css";
 
 const Menu = () => {
   return (
     <>
       <Link to="/home">
         <p>
-          <a href="#home">Home</a>
+          <a href="#home">HOME</a>
         </p>
       </Link>
       <p>
-        <a href="#about">About</a>
+        <a href="#about">ABOUT</a>
       </p>
       <p>
-        <a href="#highlights">Menu</a>
+        <a href="#menu">MENU</a>
       </p>
       <p>
         <Link to="/booking">
-          <a href="/booking">Reservations</a>
+          <a href="/booking">RESERVATIONS</a>
         </Link>
       </p>
       <p>
-        <a href="#order">Order Online</a>
+        <a href="#order">ORDER ONLINE</a>
       </p>
       <p>
-        <a href="#login">Login</a>
+        <a href="#login">LOGIN</a>
       </p>
     </>
   );
@@ -44,7 +44,19 @@ const Navbar = () => {
         <Menu />
       </div>
       <div className="lemon__navbar-menu">
-        {toggleMenu ? <RiCloseLine color="#000" size={27} onClick={() => setToggleMenu(false)} /> : <RiMenu3Line color="#000" size={27} onClick={() => setToggleMenu(true)} />}
+        {toggleMenu ? (
+          <RiCloseLine
+            color="#000"
+            size={27}
+            onClick={() => setToggleMenu(false)}
+          />
+        ) : (
+          <RiMenu3Line
+            color="#000"
+            size={27}
+            onClick={() => setToggleMenu(true)}
+          />
+        )}
         {toggleMenu && (
           <div className="lemon__navbar-menu_container scale-up-center">
             <div className="lemon__navbar-menu_container-links">

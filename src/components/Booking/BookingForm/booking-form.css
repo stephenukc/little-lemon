@@ -1,0 +1,61 @@
+.lemon__booking-forms_booking label {
+  display: block;
+  font-family: var(--Font-Secondary);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.lemon__booking-forms_booking input,
+select,
+option {
+  font-family: var(--Font-Secondary);
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: 500;
+  height: 60px;
+  outline: none;
+  border: none;
+  background: #d9d9d9;
+  padding: 20px 30px;
+  border-radius: 10px;
+  opacity: 0.8;
+  transition: all 0.3s ease-in-out;
+}
+
+.lemon__booking-forms_booking-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.lemon__booking-forms_booking-group {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+@media screen and (max-width: 1000px) {
+  .lemon__booking-forms_booking label {
+    padding-bottom: 2px;
+  }
+
+  .lemon__booking-forms_booking-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .lemon__booking-forms_booking-group {
+    width: 90%;
+    margin-bottom: 0;
+  }
+  .lemon__booking-forms_booking input,
+  select,
+  option {
+    padding-right: 20px;
+  }
+}
