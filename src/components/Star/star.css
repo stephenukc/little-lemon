@@ -1,0 +1,26 @@
+.stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+}
+
+.star {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--Color-Primary-Light);
+  padding: 3px;
+  border-radius: 3px;
+  width: 18px;
+  height: 18px;
+}
+
+.star--full-opacity {
+  opacity: 1;
+}
+
+.star--light-opacity {
+  opacity: 0.3;
+}

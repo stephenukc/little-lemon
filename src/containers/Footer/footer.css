@@ -1,0 +1,108 @@
+.footer__padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.text__padding {
+  margin: 2rem 0;
+}
+
+.lemon__footer-social,
+.lemon__footer-about,
+.lemon__footer-links {
+  padding: 0 13px;
+}
+
+.lemon__footer {
+  background: var(--Color-Primary);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.lemon__footer-logo {
+  max-width: 183px;
+  max-height: 321px;
+}
+
+.lemon__footer-logo img {
+  width: 100%;
+  height: auto;
+}
+
+.lemon__footer h4,
+h5,
+p {
+  font-family: var(--Font-Secondary);
+  font-size: 20px;
+}
+
+.lemon__footer h4 {
+  font-family: var(--Font-Secondary);
+  color: var(--Color-Primary-Light);
+  font-weight: 800;
+  font-size: 23px;
+  line-height: 23px;
+  margin-bottom: 1.5rem;
+}
+
+.lemon__footer h5 {
+  font-weight: 700;
+  line-height: 130%;
+  text-decoration: underline;
+}
+
+.lemon__footer p {
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.lemon__footer-about p {
+  margin-bottom: 1rem;
+}
+
+.lemon__footer-links p {
+  line-height: 145%;
+}
+
+.lemon__footer-social p {
+  line-height: 145%;
+}
+
+a:hover {
+  color: var(--Color-Highlight);
+}
+
+a.facebook:hover {
+  cursor: url("../../assets/facebook.svg") 10 10, auto;
+}
+
+a.instagram:hover {
+  cursor: url("../../assets/instagram.svg") 10 10, auto;
+}
+
+a.linkedin:hover {
+  cursor: url("../../assets/linkedin.svg") 10 10, auto;
+}
+
+@media screen and (max-width: 600px) {
+  .lemon__footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text__padding {
+    margin: 1rem 0;
+  }
+
+  .lemon__footer h4 {
+    margin-bottom: 1rem;
+  }
+
+  .lemon__footer-logo {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+}

@@ -1,0 +1,63 @@
+.lemon__testimonials {
+  background: var(--Color-Primary);
+}
+
+.lemon__testimonials h1 {
+  font-family: var(--Font-Primary);
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 65px;
+  text-align: center;
+  padding-bottom: 2rem;
+  color: var(--Color-Primary-Light);
+}
+
+.lemon__testimonials-reviews {
+  padding-bottom: 2rem;
+  max-height: 185px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+  justify-content: center;
+  align-items: start;
+  justify-items: center;
+}
+
+@media screen and (max-width: 1240px) {
+  .lemon__testimonials-reviews {
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 2rem;
+    max-height: 370px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .lemon__testimonials h1 {
+    font-size: 65px;
+  }
+
+  .lemon__testimonials-reviews {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .lemon__testimonials h1 {
+    font-size: 55px;
+    line-height: 50px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .lemon__testimonials h1 {
+    font-size: 45px;
+    line-height: 45px;
+  }
+
+  .lemon__testimonials-reviews {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 2rem;
+    max-height: 740px;
+  }
+}

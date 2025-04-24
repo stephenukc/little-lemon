@@ -1,0 +1,132 @@
+.lemon__about {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lemon__about-text {
+  width: 50%;
+}
+
+.lemon__about-text_top {
+  margin-bottom: 4rem;
+}
+
+.lemon__about-text_top h1,
+h4 {
+  font-family: var(--Font-Primary);
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 65px;
+}
+
+.lemon__about-text_top h4 {
+  font-size: 32px;
+  line-height: 32px;
+}
+
+.lemon__about-text p {
+  padding-right: 13rem;
+  color: var(--Color-Primary);
+  font-family: var(--Font-Secondary);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 125%;
+
+  word-wrap: break-word;
+}
+
+.lemon__about-image {
+  position: relative;
+  filter: drop-shadow(-6px 6px 20px rgba(0, 0, 0, 0.25));
+}
+
+.lemon__about-image {
+  width: 50%;
+}
+
+.lemon__about-image img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1320px) {
+  .lemon__about-text p {
+    padding-right: 10rem;
+  }
+
+  .lemon__about-text_top {
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .lemon__about-text {
+    width: 60%;
+  }
+
+  .lemon__about-text p {
+    padding-right: 6rem;
+  }
+
+  .lemon__about-image {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .lemon__about-text_top {
+    margin-bottom: 2rem;
+  }
+
+  .lemon__about-text p {
+    padding-right: 4rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .lemon__about {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .lemon__about-text {
+    width: 70%;
+    margin-bottom: 2rem;
+  }
+
+  .lemon__about-text p {
+    padding-right: 0;
+  }
+
+  .lemon__about-image {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .lemon__about-text {
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+  .lemon__about-text_top h1 {
+    font-size: 60px;
+    line-height: 60px;
+  }
+
+  .lemon__about-text_top {
+    margin-bottom: 1.5rem;
+  }
+
+  .lemon__about-text_top h4 {
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .lemon__about-text p {
+    font-size: 18px;
+  }
+
+  .lemon__about-image {
+    width: 80%;
+  }
+}

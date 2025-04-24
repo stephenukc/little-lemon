@@ -1,0 +1,92 @@
+.lemon__highlights-specials_special {
+  background-color: var(--Color-Highlight-Light);
+  overflow: hidden;
+  min-width: 260px;
+  font-family: var(--Font-Secondary);
+  border-radius: 16px 16px 0 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.lemon__highlights-specials_special:hover {
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
+}
+
+.lemon__highlights-specials_special:active {
+  box-shadow: none;
+  transform: scale(1);
+}
+
+.lemon__highlights-specials_special-image {
+  height: 185px;
+  width: 260px;
+}
+
+.lemon__highlights-specials_special-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.lemon__highlights-specials_special-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 40px;
+}
+
+/* Content-Top Section */
+
+.lemon__highlights-specials_special-content-top {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lemon__highlights-specials_special-content-top p.lemon__highlights-specials_special-content-top_rate {
+  font-family: var(--Font-Secondary);
+  color: var(--Color-Secondary);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.lemon__highlights-specials_special-content-top h4 {
+  font-family: var(--Font-Primary);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 90%;
+}
+
+/* Content-Middle Section */
+
+p.lemon__highlights-specials_special-content-middle {
+  font-family: var(--Font-Secondary);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--Color-Primary);
+  height: 7rem;
+}
+
+/* Content-Bottom Section */
+
+.lemon__highlights-specials_special-content-bottom {
+  display: flex;
+}
+
+.lemon__highlights-specials_special-content-bottom h5 {
+  padding-right: 0.5rem;
+  font-family: var(--Font-Secondary);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.lemon__highlights-specials_special-content-svg {
+  height: 20px;
+  padding-bottom: 4px;
+}
