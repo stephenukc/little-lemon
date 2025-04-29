@@ -1,13 +1,19 @@
+/* global fetchAPI */
 import React, { createContext, useReducer } from "react";
 
 export const BookingContext = createContext();
 
 export const initializeTimes = () => {
-  return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+  const today = new Date();
+  return fetchAPI(today);
 };
 
 export const updateTimes = (state, action) => {
-  return initializeTimes();
+  if (action.type === "update_times") {
+    const selectedDate = new Date(action.date);
+    return fetchAPI(selectedDate);
+  }
+  return state;
 };
 
 const formReducer = (state, action) => {
@@ -35,7 +41,6 @@ export const BookingProvider = ({ children }) => {
     [],
     initializeTimes
   );
-
   const [formData, formDispatch] = useReducer(formReducer, {
     date: "",
     time: "",

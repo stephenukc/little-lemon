@@ -21,7 +21,6 @@ const BookingForm = () => {
   const submitForm = (e) => {
     e.preventDefault();
     console.log("Form submitted with:", formData);
-    // handle form submit logic
   };
 
   const resetForm = () => {
