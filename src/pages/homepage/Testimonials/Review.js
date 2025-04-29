@@ -1,6 +1,6 @@
-import Star from "../Star/Star";
+import { ReactComponent as User } from "../../../assets/User.svg";
 import "./review.css";
-import { ReactComponent as User } from "../../assets/User.svg";
+import Star from "./Star";
 
 const Review = ({ name, stars, totalReviews, review }) => {
   return (

@@ -46,7 +46,8 @@
   align-items: center;
 }
 
-.lemon__highlights-specials_special-content-top p.lemon__highlights-specials_special-content-top_rate {
+.lemon__highlights-specials_special-content-top
+  p.lemon__highlights-specials_special-content-top_rate {
   font-family: var(--Font-Secondary);
   color: var(--Color-Secondary);
   font-weight: 700;

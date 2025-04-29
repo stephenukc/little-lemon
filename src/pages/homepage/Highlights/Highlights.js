@@ -1,8 +1,8 @@
-import bruchetta from "../../assets/bruchetta.svg";
-import greekSalad from "../../assets/greek salad.jpg";
-import lemonSalad from "../../assets/lemon dessert.jpg";
-import { Special } from "../../components/index.js";
+import bruchetta from "../../../assets/bruchetta.svg";
+import greekSalad from "../../../assets/greek salad.jpg";
+import lemonSalad from "../../../assets/lemon dessert.jpg";
 import "./highlights.css";
+import Special from "./Special";
 
 const content = [
   {
@@ -30,9 +30,9 @@ const content = [
 
 const Highlights = () => {
   return (
-    <div className="lemon__highlights section__padding" id="menu">
+    <div className="lemon__highlights section__padding">
       <div className="lemon__highlights-head">
-        <h1>This weeks specials!</h1>
+        <h1>This weeks specials</h1>
         <button className="lemon-btn" style={{ height: "55px" }}>
           Online Menu
         </button>

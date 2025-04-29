@@ -1,5 +1,5 @@
+import { ReactComponent as ReactLogo } from "../../../assets/delivery.svg";
 import "./special.css";
-import { ReactComponent as ReactLogo } from "../../assets/delivery.svg";
 
 const Special = (props) => {
   return (
@@ -10,9 +10,13 @@ const Special = (props) => {
       <div className="lemon__highlights-specials_special-content">
         <div className="lemon__highlights-specials_special-content-top">
           <h4>{props.name}</h4>
-          <p className="lemon__highlights-specials_special-content-top_rate">${props.rate}</p>
+          <p className="lemon__highlights-specials_special-content-top_rate">
+            ${props.rate}
+          </p>
         </div>
-        <p className="lemon__highlights-specials_special-content-middle">{props.description}</p>
+        <p className="lemon__highlights-specials_special-content-middle">
+          {props.description}
+        </p>
         <div className="lemon__highlights-specials_special-content-bottom">
           <h5>Order a delivery</h5>
           <ReactLogo className="lemon__highlights-specials_special-content-svg" />

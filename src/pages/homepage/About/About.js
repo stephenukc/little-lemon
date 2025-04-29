@@ -1,5 +1,5 @@
+import about from "../../../assets/About.png";
 import "./about.css";
-import about from "../../assets/About.png";
 
 const About = () => {
   return (
@@ -11,8 +11,9 @@ const About = () => {
         </div>
         <div className="lemon__about-text_bottom">
           <p>
-            Little Lemon is a charming neighborhood bistro thatserves simple food and classic cocktails in a lively but casual environment. The restaurant features a locally-sourced menu with daily
-            specials.
+            Little Lemon is a charming neighborhood bistro thatserves simple
+            food and classic cocktails in a lively but casual environment. The
+            restaurant features a locally-sourced menu with daily specials.
           </p>
         </div>
       </div>

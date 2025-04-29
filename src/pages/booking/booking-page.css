@@ -1,9 +1,5 @@
-.lemon__booking-top {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 3rem 0 3rem;
+.lemon__booking {
+  padding: var(--section-padding);
 }
 
 .lemon__booking-forms {
@@ -23,12 +19,18 @@
   .lemon__booking-forms {
     padding: 2rem;
   }
+}
 
+.lemon__booking-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem 3rem 0; /* Removed redundant right padding */
+}
+
+@media screen and (max-width: 700px) {
   .lemon__booking-top {
-    display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
-    align-items: center;
     padding: 0 1rem;
   }
 }

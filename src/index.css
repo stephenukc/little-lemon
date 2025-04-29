@@ -1,19 +1,58 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Markazi+Text:wght@400;500;600;700&display=swap");
 
 :root {
+  /* Typography */
   --Font-Primary: "Markazi Text", serif;
   --Font-Secondary: "Karla", sans-serif;
 
+  /* Brand Colors */
   --Color-Primary: #495e57;
   --Color-Primary-Light: #f4ce14;
+
   --Color-Secondary: #ee9972;
   --Color-Secondary-Light: #fbdabb;
+
   --Color-Highlight: #333333;
   --Color-Highlight-Light: #edefee;
 
+  /* Accent Colors */
+  --Color-Accent: #f4ce14;
+  --Color-Accent-Hover: #e0bf10;
+
+  /* Backgrounds */
   --Hero-Back: linear-gradient(
     0deg,
     rgba(255, 255, 255, 1) 13%,
     rgba(73, 94, 87, 1) 13%
   );
+
+  /* Utility */
+  --Border-Radius: 16px;
+  --Box-Shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --Transition-Speed: 0.3s ease-in-out;
+}
+
+/* Apply base font family globally */
+body {
+  font-family: var(--Font-Secondary);
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: var(--Color-Highlight);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Button reset + shared style (optional) */
+button {
+  font-family: var(--Font-Secondary);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--Transition-Speed);
+}
+
+/* Anchor tag reset */
+a {
+  text-decoration: none;
+  color: inherit;
 }

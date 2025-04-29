@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Loader } from "./components";
-import Home from "./Home";
+import Home from "./pages/homepage/Home";
+import Loader from "./pages/homepage/Loader/Loader";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -12,17 +12,7 @@ function App() {
     }, 3000);
   }, []);
 
-  return (
-    <div>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div id="home">
-          <Home />
-        </div>
-      )}
-    </div>
-  );
+  return <div>{isLoading ? <Loader /> : <Home />}</div>;
 }
 
 export default App;

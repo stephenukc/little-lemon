@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import { BookingContext } from "../../../containers/BookingPage/BookingContext";
-import "../../Booking/booking.css";
+import { BookingContext } from "../BookingContext";
 import "./booking-form.css";
 
 const BookingForm = () => {
