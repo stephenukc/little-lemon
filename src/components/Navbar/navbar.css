@@ -1,52 +1,70 @@
 .lemon__navbar {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   background: white;
   position: sticky;
+  top: 0;
   z-index: 999;
 }
 
 .lemon__navbar-image {
-  justify-content: flex-start;
-  align-items: center;
   cursor: pointer;
+  max-height: 60px;
 }
 
 .lemon__navbar-links {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
 }
 
 .lemon__navbar-links p {
-  padding-left: 2rem;
+  margin-left: 2rem;
+  position: relative;
 }
 
-.lemon__navbar-menu_container p {
-  padding: 0.5rem 0;
-}
-
-.lemon__navbar-links,
+.lemon__navbar-links p a,
 .lemon__navbar-menu_container-links a {
+  font-family: var(--Font-Secondary);
+  font-size: 18px;
+  font-weight: 600;
   color: black;
   text-decoration: none;
-  font-family: var(--Font-Secondary);
-  font-size: 20px;
-  font-weight: 500;
-  white-space: nowrap;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.lemon__navbar-links p a::after,
+.lemon__navbar-menu_container-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--Color-Primary);
+  transition: width 0.3s ease;
+}
+
+.lemon__navbar-links a:is(:hover, :focus),
+.lemon__navbar-menu_container-links a:is(:hover, :focus) {
+  color: var(--Color-Primary);
+}
+
+.lemon__navbar-links a:is(:hover, :focus)::after,
+.lemon__navbar-menu_container-links a:is(:hover, :focus)::after {
+  width: 100%;
+}
+
+.lemon__navbar-menu {
+  display: none;
+  position: relative;
 }
 
 .lemon__navbar-menu svg {
   cursor: pointer;
-}
-
-.lemon__navbar-menu {
   margin-left: 1rem;
-  display: none;
-  position: relative;
 }
 
 .lemon__navbar-menu_container {
@@ -54,40 +72,39 @@
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
-
   text-align: end;
-  background: whitesmoke;
-  padding: 2rem;
+  background: #f5f5f5;
+  padding: 1.5rem;
   position: absolute;
   top: 40px;
   right: 0;
   margin-top: 1rem;
   min-width: 200px;
   border-radius: 16px;
-  box-shadow: 0 0 5 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.lemon__navbar-links a:is(:hover, :active),
-.lemon__navbar-menu_container-links a:is(:hover, :active) {
-  color: var(--Color-Primary);
+.lemon__navbar-menu_container p {
+  padding: 0.5rem 0;
 }
 
+/* Responsive Breakpoints */
 @media screen and (max-width: 1180px) {
   .lemon__navbar-links p {
-    padding-left: 1rem;
+    margin-left: 1rem;
   }
 
-  .lemon__navbar-links a:any-link {
-    font-size: 18px;
+  .lemon__navbar-links a {
+    font-size: 17px;
   }
 }
 
 @media screen and (max-width: 900px) {
-  .lemon__navbar-menu {
-    display: flex;
-  }
-
   .lemon__navbar-links {
     display: none;
+  }
+
+  .lemon__navbar-menu {
+    display: flex;
   }
 }

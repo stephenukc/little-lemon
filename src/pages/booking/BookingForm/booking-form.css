@@ -3,63 +3,54 @@
   font-family: var(--Font-Secondary);
   font-weight: 500;
   font-size: 20px;
-  line-height: 20px;
-  margin-bottom: 0.5rem; /* Added some spacing below the label */
+  margin-bottom: 0.5rem;
 }
 
 .lemon__booking-forms_booking input,
 .lemon__booking-forms_booking select {
-  /* More specific class names */
   font-family: var(--Font-Secondary);
-  box-sizing: border-box;
   font-size: 18px;
   font-weight: 500;
   height: 60px;
-  outline: none;
-  border: none;
   background: #d9d9d9;
   padding: 0 20px;
+  border: none;
   border-radius: 10px;
   opacity: 0.8;
   transition: all 0.3s ease-in-out;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .lemon__booking-forms_booking select option {
-  /* Targeting option within the select */
-  font-family: var(--Font-Secondary); /* Ensure consistent font */
+  font-family: var(--Font-Secondary);
 }
 
 .lemon__booking-forms_booking-section {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-  margin-bottom: 1.5rem; /* Added margin below the section */
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .lemon__booking-forms_booking-group {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  position: relative;
-  gap: 0.5rem;
+  width: 48%;
+  min-width: 250px;
+  flex: 1 1 45%;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 700px) {
   .lemon__booking-forms_booking-section {
     flex-direction: column;
-    align-items: center;
     gap: 1rem;
-    margin-bottom: 1rem;
   }
 
   .lemon__booking-forms_booking-group {
-    width: 90%;
-    margin-bottom: 0;
-  }
-
-  .lemon__booking-forms_booking input,
-  .lemon__booking-forms_booking select {
-    padding-right: 20px;
+    width: 100%;
   }
 }
 
@@ -67,67 +58,6 @@
   display: flex;
   justify-content: flex-end;
   gap: 2rem;
-}
-
-.lemon__booking-forms-btn button {
-  font-family: var(--Font-Secondary);
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 30px;
-  text-align: center;
-  padding: 10px 50px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  width: 100%; /* Ensure buttons take full width in their container */
-  max-width: 195px;
-}
-
-.lemon__booking-forms_booking input:focus,
-.lemon__booking-forms_booking select:focus {
-  box-shadow: inset 0 0 0 2px var(--Color-Primary);
-  opacity: 1;
-}
-
-button.lemon__booking-forms_secondary-btn {
-  color: var(--Color-Primary);
-  background: var(--Color-Highlight-light);
-  border: 2.5px solid var(--Color-Primary);
-}
-
-button.lemon__booking-forms_primary-btn {
-  color: white;
-  background: var(--Color-Primary);
-  outline: none;
-  border: none;
-}
-
-h1.lemon__booking-forms-heading {
-  font-family: var(--Font-Primary);
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 32px;
-  text-decoration-line: underline;
-  color: var(--Color-Primary);
-  padding-bottom: 2rem;
-}
-
-.lemon__booking-forms-correct {
-  display: none;
-  position: absolute;
-  fill: green;
-  width: 20px;
-  left: 5px;
-  top: 50%;
-}
-
-.lemon__booking-forms-alert {
-  display: none;
-  position: absolute;
-  fill: red;
-  width: 20px;
-  left: 5px;
-  top: 50%;
 }
 
 @media screen and (max-width: 1000px) {
@@ -142,4 +72,45 @@ h1.lemon__booking-forms-heading {
     align-items: center;
     gap: 1rem;
   }
+}
+
+.lemon__booking-forms-btn button {
+  font-family: var(--Font-Secondary);
+  font-weight: 700;
+  font-size: 22px;
+  padding: 10px 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  max-width: 195px;
+  text-align: center;
+}
+
+button.lemon__booking-forms_secondary-btn {
+  color: var(--Color-Primary);
+  background: var(--Color-Highlight-light);
+  border: 2.5px solid var(--Color-Primary);
+}
+
+button.lemon__booking-forms_primary-btn {
+  color: white;
+  background: var(--Color-Primary);
+  border: none;
+  outline: none;
+}
+
+h1.lemon__booking-forms-heading {
+  font-family: var(--Font-Primary);
+  font-weight: 500;
+  font-size: 40px;
+  text-decoration-line: underline;
+  color: var(--Color-Primary);
+  padding-bottom: 2rem;
+}
+
+.lemon__booking-forms_booking input:focus,
+.lemon__booking-forms_booking select:focus {
+  box-shadow: inset 0 0 0 2px var(--Color-Primary);
+  opacity: 1;
 }

@@ -8,10 +8,8 @@ const BookingPage = () => {
   return (
     <BookingProvider>
       <MainLayout>
-        <div className="lemon__booking section__padding">
-          <div className="lemon__booking-forms">
-            <BookingForm />
-          </div>
+        <div className="lemon__booking-forms">
+          <BookingForm />
         </div>
       </MainLayout>
     </BookingProvider>

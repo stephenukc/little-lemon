@@ -1,36 +1,21 @@
-.lemon__booking {
-  padding: var(--section-padding);
-}
-
 .lemon__booking-forms {
   background: var(--Color-Highlight-Light);
   border-radius: 20px;
   padding: 2rem 4rem;
-  max-height: 494px;
+  margin: 2rem auto;
+  max-width: 900px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 1000px) {
-  .lemon__booking-forms {
-    max-height: 1500px;
-  }
-}
-
-@media screen and (max-width: 700px) {
   .lemon__booking-forms {
     padding: 2rem;
   }
 }
 
-.lemon__booking-top {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 1rem 3rem 0; /* Removed redundant right padding */
-}
-
 @media screen and (max-width: 700px) {
-  .lemon__booking-top {
-    justify-content: space-evenly;
-    padding: 0 1rem;
+  .lemon__booking-forms {
+    padding: 1.5rem 1rem;
   }
 }
