@@ -1,10 +1,16 @@
 import "./booking-form.css";
 
-const BookingForm = ({ formData, availableTimes, dispatch, onSubmit }) => {
+const BookingForm = ({
+  formData,
+  availableTimes,
+  dispatch,
+  timesDispatch,
+  onSubmit,
+}) => {
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
     dispatch({ type: "UPDATE_FIELD", field: "date", value: selectedDate });
-    dispatch({ type: "UPDATE_TIMES", date: selectedDate });
+    timesDispatch({ type: "update_times", date: selectedDate });
   };
 
   const handleChange = (e) => {

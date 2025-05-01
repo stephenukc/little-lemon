@@ -1,55 +1,36 @@
 import React, { useReducer } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
+import { fetchAPI, submitAPI } from "../../api/api";
 import MainLayout from "../../components/Layout/MainLayout";
-import BookingForm from "./BookingForm/BookingForm";
-import { submitAPI, fetchAPI } from "../../api/api";
 import "./booking-page.css";
+import BookingForm from "./BookingForm/BookingForm";
 
-const initialFormState = () => {
+export const initializeTimes = () => {
   const today = new Date();
-  return {
-    formData: {
-      date: "",
-      time: "",
-      guests: "",
-      occasion: "",
-    },
-    submittedData: JSON.parse(localStorage.getItem("submittedData")) || null,
-    availableTimes: fetchAPI(today),
-  };
+  return fetchAPI(today);
 };
 
-const bookingReducer = (state, action) => {
+export const updateTimes = (state, action) => {
+  if (action.type === "update_times") {
+    const selectedDate = new Date(action.date);
+    return fetchAPI(selectedDate);
+  }
+  return state;
+};
+
+const formReducer = (state, action) => {
   switch (action.type) {
     case "UPDATE_FIELD":
       return {
         ...state,
-        formData: {
-          ...state.formData,
-          [action.field]: action.value,
-        },
-      };
-    case "UPDATE_TIMES":
-      return {
-        ...state,
-        availableTimes: fetchAPI(new Date(action.date)),
+        [action.field]: action.value,
       };
     case "RESET_FORM":
       return {
-        ...state,
-        formData: {
-          date: "",
-          time: "",
-          guests: "",
-          occasion: "",
-        },
-        submittedData: null,
-      };
-    case "SUBMIT_SUCCESS":
-      localStorage.setItem("submittedData", JSON.stringify(action.payload));
-      return {
-        ...state,
-        submittedData: action.payload,
+        date: "",
+        time: "",
+        guests: "",
+        occasion: "",
       };
     default:
       return state;
@@ -58,12 +39,23 @@ const bookingReducer = (state, action) => {
 
 const BookingPage = () => {
   const navigate = useNavigate();
-  const [state, dispatch] = useReducer(bookingReducer, {}, initialFormState);
+
+  const [availableTimes, timesDispatch] = useReducer(
+    updateTimes,
+    [],
+    initializeTimes
+  );
+  const [formData, formDispatch] = useReducer(formReducer, {
+    date: "",
+    time: "",
+    guests: "",
+    occasion: "",
+  });
 
   const handleSubmit = async () => {
-    const isSuccess = await submitAPI(state.formData);
+    const isSuccess = await submitAPI(formData);
     if (isSuccess) {
-      dispatch({ type: "SUBMIT_SUCCESS", payload: state.formData });
+      localStorage.setItem("submittedData", JSON.stringify(formData));
       navigate("/confirmation");
     }
   };
@@ -72,10 +64,11 @@ const BookingPage = () => {
     <MainLayout>
       <div className="lemon__booking-forms">
         <BookingForm
-          formData={state.formData}
-          availableTimes={state.availableTimes}
-          dispatch={dispatch}
+          formData={formData}
+          availableTimes={availableTimes}
+          dispatch={formDispatch}
           onSubmit={handleSubmit}
+          timesDispatch={timesDispatch}
         />
       </div>
     </MainLayout>

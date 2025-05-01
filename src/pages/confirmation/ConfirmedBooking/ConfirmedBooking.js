@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { ReactSVG } from "react-svg";
 import success from "../../../assets/success.svg";
 import "./confirmed-booking.css";
