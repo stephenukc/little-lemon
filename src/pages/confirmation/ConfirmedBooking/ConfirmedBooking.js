@@ -3,10 +3,21 @@ import { ReactSVG } from "react-svg";
 import success from "../../../assets/success.svg";
 import "./confirmed-booking.css";
 
-export default function ConfirmedBooking() {
+export default function ConfirmedBooking({ submittedData }) {
   const reservationId = Date.now();
-  const reservationDate = "2025-05-03";
-  const reservationTime = "7:00 PM";
+
+  if (!submittedData) {
+    return (
+      <div className="confirmation-container">
+        <p>Error: No booking data found. Please return to the booking page.</p>
+        <Link to="/booking">
+          <button className="confirmation-button">Go to Booking</button>
+        </Link>
+      </div>
+    );
+  }
+
+  const { date, time } = submittedData;
 
   return (
     <div className="confirmation-container">
@@ -17,15 +28,15 @@ export default function ConfirmedBooking() {
         </p>
         <p>
           Your Reservation ID is <strong>{reservationId}</strong>, and your
-          table is reserved for <strong>{reservationDate}</strong> at{" "}
-          <strong>{reservationTime}</strong>.
+          table is reserved for <strong>{date}</strong> at{" "}
+          <strong>{time}</strong>.
         </p>
         <p>
           Get ready to indulge in a delightful dining experience! We have sent
           the reservation details to your email and mobile number. Enjoy your
           meal!
         </p>
-        <Link to="/home">
+        <Link to="/">
           <button className="confirmation-button">Home</button>
         </Link>
       </section>

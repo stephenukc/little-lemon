@@ -1,15 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Footer, Navbar } from "../../components";
-import { BookingProvider } from "../booking/BookingContext";
 import ConfirmedBooking from "./ConfirmedBooking/ConfirmedBooking";
 
 const ConfirmationPage = () => {
+  const navigate = useNavigate();
+  const [submittedData, setSubmittedData] = useState(null);
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("submittedData");
+    if (storedData) {
+      setSubmittedData(JSON.parse(storedData));
+    } else {
+      navigate("/booking");
+    }
+  }, [navigate]);
+
   return (
-    <BookingProvider>
+    <>
       <Navbar />
-      <ConfirmedBooking />
+      <ConfirmedBooking submittedData={submittedData} />
       <Footer />
-    </BookingProvider>
+    </>
   );
 };
 

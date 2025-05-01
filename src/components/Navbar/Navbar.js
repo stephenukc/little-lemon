@@ -29,7 +29,7 @@ const Navbar = () => {
 
   return (
     <nav className="lemon__navbar section__padding">
-      <Link to="/home">
+      <Link to="/">
         <img className="lemon__navbar-image" src={logo} alt="Lemon Logo" />
       </Link>
 

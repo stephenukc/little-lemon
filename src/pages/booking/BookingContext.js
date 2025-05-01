@@ -1,4 +1,5 @@
 /* global fetchAPI */
+/* global submitAPI */
 import React, { createContext, useReducer } from "react";
 
 export const BookingContext = createContext();
@@ -21,36 +22,69 @@ const formReducer = (state, action) => {
     case "UPDATE_FIELD":
       return {
         ...state,
-        [action.field]: action.value,
+        formData: {
+          ...state.formData,
+          [action.field]: action.value,
+        },
       };
     case "RESET_FORM":
       return {
-        date: "",
-        time: "",
-        guests: "",
-        occasion: "",
+        formData: {
+          date: "",
+          time: "",
+          guests: "",
+          occasion: "",
+        },
+        submittedData: null,
+      };
+    case "SUBMIT_SUCCESS":
+      console.log(action.payload);
+      return {
+        ...state,
+        submittedData: action.payload,
       };
     default:
       return state;
   }
 };
 
-export const BookingProvider = ({ children }) => {
+export const BookingProvider = ({ children, navigate }) => {
   const [availableTimes, dispatch] = useReducer(
     updateTimes,
     [],
     initializeTimes
   );
-  const [formData, formDispatch] = useReducer(formReducer, {
-    date: "",
-    time: "",
-    guests: "",
-    occasion: "",
-  });
+
+  const initialFormState = {
+    formData: {
+      date: "",
+      time: "",
+      guests: "",
+      occasion: "",
+    },
+    submittedData: null,
+  };
+
+  const [formState, formDispatch] = useReducer(formReducer, initialFormState);
+
+  const submitForm = async () => {
+    const isSuccess = await submitAPI(formState.formData);
+    if (isSuccess) {
+      formDispatch({ type: "SUBMIT_SUCCESS", payload: formState.formData });
+      if (navigate) navigate("/confirmation");
+    }
+  };
 
   return (
     <BookingContext.Provider
-      value={{ availableTimes, dispatch, formData, formDispatch }}
+      value={{
+        availableTimes,
+        dispatch,
+        formData: formState.formData,
+        submittedData: formState.submittedData,
+        formDispatch,
+        submitForm,
+      }}
     >
       {children}
     </BookingContext.Provider>

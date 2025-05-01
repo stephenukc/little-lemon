@@ -1,34 +1,32 @@
-import { useContext } from "react";
-import { BookingContext } from "../BookingContext";
 import "./booking-form.css";
 
-const BookingForm = () => {
-  const { availableTimes, dispatch, formData, formDispatch } =
-    useContext(BookingContext);
-
+const BookingForm = ({ formData, availableTimes, dispatch, onSubmit }) => {
   const handleDateChange = (e) => {
     const selectedDate = e.target.value;
-    formDispatch({ type: "UPDATE_FIELD", field: "date", value: selectedDate });
-    dispatch({ type: "update_times", date: selectedDate });
+    dispatch({ type: "UPDATE_FIELD", field: "date", value: selectedDate });
+    dispatch({ type: "UPDATE_TIMES", date: selectedDate });
   };
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    formDispatch({ type: "UPDATE_FIELD", field: id, value });
-  };
-
-  const submitForm = (e) => {
-    e.preventDefault();
-    console.log("Form submitted with:", formData);
+    dispatch({ type: "UPDATE_FIELD", field: id, value });
   };
 
   const resetForm = () => {
-    formDispatch({ type: "RESET_FORM" });
+    dispatch({ type: "RESET_FORM" });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit();
   };
 
   return (
     <div className="lemon__booking-forms_booking">
-      <form className="lemon__booking-forms_booking-form" onSubmit={submitForm}>
+      <form
+        className="lemon__booking-forms_booking-form"
+        onSubmit={handleSubmit}
+      >
         <legend>
           <h1 className="lemon__booking-forms-heading">Table Reservation</h1>
         </legend>
