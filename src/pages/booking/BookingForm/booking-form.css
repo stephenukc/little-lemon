@@ -6,6 +6,12 @@
   margin-bottom: 0.5rem;
 }
 
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
 .lemon__booking-forms_booking input,
 .lemon__booking-forms_booking select {
   font-family: var(--Font-Secondary);

@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./booking-form.css";
 
 const BookingForm = ({
@@ -7,25 +8,82 @@ const BookingForm = ({
   timesDispatch,
   onSubmit,
 }) => {
+  const [isFormValid, setIsFormValid] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
+
+  const validateField = (field, value) => {
+    let error = "";
+
+    switch (field) {
+      case "date":
+        if (!value) {
+          error = "Please select a date.";
+        } else if (new Date(value) < new Date().setHours(0, 0, 0, 0)) {
+          error = "Date cannot be in the past.";
+        }
+        break;
+      case "time":
+        if (!value) {
+          error = "Please select a time.";
+        }
+        break;
+      case "guests":
+        const numGuests = parseInt(value, 10);
+        if (!value) {
+          error = "Please enter number of guests.";
+        } else if (numGuests < 1 || numGuests > 10) {
+          error = "Guests must be between 1 and 10.";
+        }
+        break;
+      case "occasion":
+        if (!value) {
+          error = "Please select an occasion.";
+        }
+        break;
+      default:
+        break;
+    }
+
+    setFormErrors((prev) => ({ ...prev, [field]: error }));
+  };
+
   const handleDateChange = (e) => {
-    const selectedDate = e.target.value;
-    dispatch({ type: "UPDATE_FIELD", field: "date", value: selectedDate });
-    timesDispatch({ type: "update_times", date: selectedDate });
+    const value = e.target.value;
+    dispatch({ type: "UPDATE_FIELD", field: "date", value });
+    timesDispatch({ type: "update_times", date: value });
+    validateField("date", value);
   };
 
   const handleChange = (e) => {
     const { id, value } = e.target;
     dispatch({ type: "UPDATE_FIELD", field: id, value });
+    validateField(id, value);
   };
 
   const resetForm = () => {
     dispatch({ type: "RESET_FORM" });
+    setFormErrors({});
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit();
+    if (isFormValid) {
+      onSubmit();
+    }
   };
+
+  useEffect(() => {
+    const isValid =
+      formData.date &&
+      new Date(formData.date) >= new Date().setHours(0, 0, 0, 0) &&
+      formData.time &&
+      formData.guests >= 1 &&
+      formData.guests <= 10 &&
+      formData.occasion &&
+      Object.values(formErrors).every((err) => err === "");
+
+    setIsFormValid(isValid);
+  }, [formData, formErrors]);
 
   return (
     <div className="lemon__booking-forms_booking">
@@ -44,9 +102,11 @@ const BookingForm = ({
               type="date"
               id="date"
               required
+              min={new Date().toISOString().split("T")[0]}
               value={formData.date}
               onChange={handleDateChange}
             />
+            {formErrors.date && <p className="error">{formErrors.date}</p>}
           </div>
 
           <div className="lemon__booking-forms_booking-group">
@@ -66,6 +126,7 @@ const BookingForm = ({
                 </option>
               ))}
             </select>
+            {formErrors.time && <p className="error">{formErrors.time}</p>}
           </div>
         </section>
 
@@ -82,6 +143,7 @@ const BookingForm = ({
               value={formData.guests}
               onChange={handleChange}
             />
+            {formErrors.guests && <p className="error">{formErrors.guests}</p>}
           </div>
 
           <div className="lemon__booking-forms_booking-group">
@@ -98,6 +160,9 @@ const BookingForm = ({
               <option value="BIRTHDAY">Birthday</option>
               <option value="ANNIVERSARY">Anniversary</option>
             </select>
+            {formErrors.occasion && (
+              <p className="error">{formErrors.occasion}</p>
+            )}
           </div>
         </section>
 
@@ -110,7 +175,11 @@ const BookingForm = ({
             Reset
           </button>
 
-          <button type="submit" className="lemon__booking-forms_primary-btn">
+          <button
+            type="submit"
+            className="lemon__booking-forms_primary-btn"
+            disabled={!isFormValid}
+          >
             Continue
           </button>
         </div>
